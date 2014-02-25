@@ -2,10 +2,11 @@
 
 /boot       mtd         boot
 /misc       mtd         misc
+/parameter	mtd	parameter
 /backup	    mtd	        backup
 /recovery   mtd         recovery
 /cache      ext4         /dev/block/mtd/by-name/cache
 /data       ext4        /dev/block/mtd/by-name/userdata
 /system     ext4        /dev/block/mtd/by-name/system
 /sdcard     vfat        /dev/block/mtd/by-name/user
-/external_sd     vfat        /dev/block/mmcblk0p2
+/external_sd     vfat   /dev/block/mmcblk0p1
