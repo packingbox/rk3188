@@ -15,3 +15,9 @@ If you make change to BoardConfig.mk, then you need to run
 $ lunch clobber
 
 to update the change.
+
+git update change
+
+1. cd working folder
+2. git commit -a -m "all what had been change"
+3. git push
