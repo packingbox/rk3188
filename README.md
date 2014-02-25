@@ -1,7 +1,7 @@
-rk3188
+rk3188 chipset
 ======
 
-ifive3
+ifive3 cwm recovery
 
 Complie step
 
@@ -10,4 +10,8 @@ Complie step
 3. make -j4 recoveryimage
 
 
-If you make change to BoardConfig.mk, then you need to run lunch combber to update the change.
+If you make change to BoardConfig.mk, then you need to run
+
+$ lunch clobber
+
+to update the change.
