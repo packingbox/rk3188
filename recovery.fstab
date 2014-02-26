@@ -1,34 +1,13 @@
 # mount point   fstype      device                  [device2]
 
-#/misc			mtd			/dev/block/mtdblcok0
-#/kernel			mtd			/dev/block/mtdblcok1
-#/boot			mtd			/dev/block/mtdblcok2
-#/recovery		mtd			/dev/block/mtdblcok3
-#/backup			ext4		/dev/block/mtdblcok4
-#/cache			ext4		/dev/block/mtdblcok5
-#/data			ext4		/dev/block/mtdblcok6
-#/metadata		ext4		/dev/block/mtdblcok7
-#/kpanic			ext4		/dev/block/mtdblcok8
-#/system			ext4		/dev/block/mtdblcok9
-#/user			ext4		/dev/block/mtdblcok10
-#/sdcard			vfat		/dev/block/mmcblk0
-#/external_sd	vfat		/dev/block/mmcblk0p1
-
-
-/boot       mtd         boot
-#/cache      ext4        /dev/block/mtdblock5
-/cache      ext4        /dev/block/mtd/by-name/cache
-#/data       ext4        /dev/block/mtdblock6
-/data       ext4        /dev/block/mtd/by-name/userdata
-/kernel	    mtd		kernel
-/misc       mtd         misc
-/parameter  mtd         parameter
-/recovery   mtd         recovery
-/backup     mtd         backup
-/sdcard     vfat        /dev/block/mtd/by-name/user 	lun=/sys/class/android_usb/android0/f_mass_storage/lun/file
-#/sdcard     vfat        /dev/block/mtdblock9
-#/sdcard     datamedia   /dev/null
-/external_sd vfat       /dev/block/mmcblk0p1        /dev/block/mmcblk0	lun=/sys/class/android_usb/android0/f_mass_storage/lun1/file
-#/system     ext4        /dev/block/mtdblock8
-/system	    ext4        /dev/block/mtd/by-name/system
-/sd-ext     auto        /dev/block/mmcblk0p2
+/boot       mtd        /dev/block/mtdblock2
+/kernel     mtd        /dev/block/mtdblock1
+/backup     mtd        /dev/block/mtdblock4
+/misc       mtd        /dev/block/mtdblock0
+/recovery   mtd        /dev/block/mtdblock3
+/cache      ext4       /dev/block/mtdblock5
+/data       ext4       /dev/block/mtdblock6
+/system     ext4       /dev/block/mtdblock8
+/sdcard     vfat       /dev/block/mtdblock9
+/sd-ext     vfat       /dev/block/mmcblk0p1
+/kpanic     mtd        /dev/block/mtdblock7
