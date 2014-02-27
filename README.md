@@ -9,6 +9,9 @@ Complie step
 2. lunch cm_rk3188-eng
 3. make -j4 recoveryimage
 
+or
+. build/envsetup.sh && lunch cm_rk3188-eng && make -j4 recoveryimage
+
 
 If you make change to BoardConfig.mk, then you need to run
 

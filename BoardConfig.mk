@@ -23,19 +23,48 @@ ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_ARMV7A := true
 
 TARGET_BOOTLOADER_BOARD_NAME := rk3188
-BOARD_USE_LCDC_COMPOSER := false
 
+#root@rk3188:/ # cat /proc/mtd
+#dev:    size   erasesize  name
+#mtd0: 00400000 00004000 "misc"
+#mtd1: 00c00000 00004000 "kernel"	十进制为12582912
+#mtd2: 01000000 00004000 "boot"	十进制为16777216
+#mtd3: 02000000 00004000 "recovery"	十进制为33554432
+#mtd4: 04000000 00004000 "backup"
+#mtd5: 08000000 00004000 "cache"
+#mtd6: 80000000 00004000 "userdata"	十进制为2147483648
+#mtd7: 00400000 00004000 "metadata"
+#mtd8: 00400000 00004000 "kpanic"
+#mtd9: 30000000 00004000 "system"	十进制为805306368
+#mtd10: 2e2e00000 00004000 "user"
+
+#root@android:/ # cat /proc/partitions
+#major minor  #blocks  name
+#
+# 179        0    7761920 mmcblk0
+# 179        1    7760896 mmcblk0p1
+#  31        0       4096 mtdblock0
+#  31        1      12288 mtdblock1
+#  31        2      16384 mtdblock2 <--boot.img
+#  31        3      32768 mtdblock3
+#  31        4      65536 mtdblock4
+#  31        5     131072 mtdblock5
+#  31        6    2097152 mtdblock6
+#  31        7       4096 mtdblock7
+#  31        8     786432 mtdblock8
+#  31        9   12109824 mtdblock9
+
+# BOARD_KERNEL_PAGESIZE: the pagesize of the stock boot.img and must be set properly in order to boot.
 BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x60400000
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01c00000
+BOARD_KERNEL_PAGESIZE := 16384 #blocks
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 805306368
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
-BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_FLASH_BLOCK_SIZE := 16384 #erasesize 0x00004000 of cat /proc/mtd
 
 TARGET_PREBUILT_KERNEL := device/rockchip/rk3188/kernel
 
